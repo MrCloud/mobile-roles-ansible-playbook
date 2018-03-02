@@ -5,6 +5,8 @@ provision an OS X / iOS development environment.
 
 In the future we'll add a build agent role as well
 
+![gif](./docs/example.gif)
+
 ### Prerequisite
 
 - Xcode [Developer link](https://developer.apple.com/downloads)/[Mac App Store link](https://itunes.apple.com/us/app/xcode/id497799835) or Xcode command line tools installed:
