@@ -1,0 +1,51 @@
+---
+# defaults file for ios-developer-machine
+
+homebrew_taps:
+  - name: homebrew/core
+  - name: caskroom/cask
+  - name: caskroom/versions
+  - name: facebook/fb
+  - name: yonaskolb/Mint
+    url: https://github.com/yonaskolb/Mint.git
+
+# Find homebrew packages with `brew search`
+homebrew_installed_packages:
+  - carthage
+  - git-flow
+  - mint
+  - npm
+  - node
+  - rbenv
+  # - zsh
+
+# List packages to be uninstalled
+homebrew_uninstalled_packages:
+
+# Find homebrew packages with `brew cask search`
+homebrew_cask_apps:
+  # - android-studio
+  # - appcode
+  - appium
+  # - atom
+  - ccmenu
+  - charles
+  # - imageoptim
+  # - intellij-idea
+  # - java
+  # - java8
+  # - postman
+  - simpholders
+  - slack
+  # - xamarin-studio
+  - zeplin
+
+#
+homebrew_cask_ql_plugins:
+  - provisionql #iOS ipa and provisionning QuickLook plugin
+  - quicklookapk #android apk QuickLook plugin
+  - qlstephen
+  - betterzip
+  - qlmarkdown
+  - qlimagesize
+  - suspicious-package

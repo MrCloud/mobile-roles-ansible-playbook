@@ -1,7 +1,7 @@
 #### Ansible-Playbook
 
 This project defines ansible roles arranged in a playbook in order to quickly
-provision an OS X / iOS development environment.
+provision an OS X / iOS development environment or Android development environment on OS X.
 
 In the future we'll add a build agent role as well
 
@@ -30,11 +30,28 @@ pip install ansible
 
 ### Usage
 
-- Edit [./roles/developer-setup/defaults/main.yml](./roles/developer-setup/defaults/main.yml) to select the packages you want to install
-- Then run:
+- Update the roles defaults to select the packages you want to install:
+
+  #### iOS
+  - Edit [./roles/ios-developer-setup/defaults/main.yml](./roles/ios-developer-setup/defaults/main.yml) to select the packages you want to install
+
+  #### Android
+  - Edit [./roles/android-developer-setup/defaults/main.yml](./roles/android-developer-setup/defaults/main.yml) to select the packages you want to install
+
+
+- Then select the roles you want to install by commenting/uncommenting the corresponding lines in: [./developer-setup-playbook.yml](./developer-setup-playbook.yml)
+```yaml
+roles:
+  # - ios-developer-setup
+  # - android-developer-setup
+```
+
+- Finally install the selected roles by running:
 ```shell
 ansible-playbook -i inventory developer-setup-playbook.yml
 ```
+
+
 
 ### Roadmap
 

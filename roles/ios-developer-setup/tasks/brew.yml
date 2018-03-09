@@ -1,0 +1,45 @@
+---
+
+- name: Install homebrew if not present
+  stat:
+    path: /usr/local/bin/brew
+  register: brew_cmd
+
+- debug:
+    var: brew_cmd
+
+- name: Install homebrew if not present
+  command: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  when: not brew_cmd.stat.exists
+
+# Tap.
+- name: Ensure configured taps are tapped.
+  homebrew_tap: "tap={{ item.name }} url={{ item.url | default() }} state=present"
+  with_items: "{{ homebrew_taps }}"
+
+- name: Uninstall homebrew package
+  homebrew:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ homebrew_uninstalled_packages }}"
+
+- name: Install homebrew package
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+    update_homebrew: yes
+  with_items: "{{ homebrew_installed_packages }}"
+
+- name: Install homebrew cask package
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+    update_homebrew: yes
+  with_items:
+    - "{{ homebrew_cask_apps }}"
+    - "{{ homebrew_cask_ql_plugins }}"
+
+#
+# - name: Upgrade all homebrew packages (if configured).
+#   homebrew: update_homebrew=yes
+#             upgrade_all=yes

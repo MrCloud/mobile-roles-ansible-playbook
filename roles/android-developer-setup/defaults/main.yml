@@ -1,5 +1,5 @@
 ---
-# defaults file for developer-machine
+# defaults file for android-developer-machine
 
 homebrew_taps:
   - name: homebrew/core
@@ -11,39 +11,38 @@ homebrew_taps:
 
 # Find homebrew packages with `brew search`
 homebrew_installed_packages:
-  - carthage
   - git-flow
-  - mint
-  - npm
-  - node
   - rbenv
-  # - zsh
+  - gradle
+  - gradle-completion
+  - maven
+  - maven-completion
 
 # List packages to be uninstalled
 homebrew_uninstalled_packages:
 
 # Find homebrew packages with `brew cask search`
 homebrew_cask_apps:
-  # - android-studio
-  # - appcode
+  - android-studio
+  # - android-studio-preview
+  # - android-sdk
   - appium
-  # - atom
+  - captain
   - ccmenu
   - charles
-  # - imageoptim
-  # - intellij-idea
-  # - java
-  # - java8
-  # - postman
-  - simpholders
+  - docker
+  - java
+  - java8
+  - postman
   - slack
+  - vagrant
+  - virtualbox
   # - xamarin-studio
   - zeplin
 
-#
+# List of useful quicklook plugins
 homebrew_cask_ql_plugins:
-  - provisionql #iOS ipa and provisionning QuickLook plugin
-  - quicklookapk #android apk QuickLook plugin
+  - quicklookapk
   - qlstephen
   - betterzip
   - qlmarkdown

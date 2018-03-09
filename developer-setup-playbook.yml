@@ -2,4 +2,5 @@
 - hosts: localhost
   connection: local
   roles:
-    - developer-setup
+    - ios-developer-setup
+    - android-developer-setup
