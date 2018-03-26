@@ -1,0 +1,22 @@
+---
+# defaults file for ios-developer-machine
+
+homebrew_taps:
+  - name: homebrew/core
+  - name: caskroom/cask
+  - name: caskroom/versions
+
+# Find homebrew packages with `brew search`
+homebrew_installed_packages:
+  - carthage
+  - rbenv
+
+# List packages to be uninstalled
+homebrew_uninstalled_packages:
+
+# Find homebrew packages with `brew cask search`
+homebrew_cask_apps:
+  - fastlane
+
+#
+homebrew_cask_ql_plugins:
