@@ -35,6 +35,7 @@ homebrew_cask_apps:
   - java8
   - postman
   - slack
+  - sim-daltonism
   - vagrant
   - virtualbox
   # - xamarin-studio

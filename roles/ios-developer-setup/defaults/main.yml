@@ -36,6 +36,7 @@ homebrew_cask_apps:
   # - java8
   # - postman
   - simpholders
+  - sim-daltonism
   - slack
   # - xamarin-studio
   - zeplin
