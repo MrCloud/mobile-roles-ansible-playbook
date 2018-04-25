@@ -4,3 +4,4 @@
   roles:
     - ios-developer-setup
     - android-developer-setup
+    - ios-agent-setup

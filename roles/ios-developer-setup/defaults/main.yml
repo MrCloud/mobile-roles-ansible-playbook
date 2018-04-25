@@ -8,15 +8,41 @@ homebrew_taps:
   - name: facebook/fb
   - name: yonaskolb/Mint
     url: https://github.com/yonaskolb/Mint.git
+# - name: jiritrecak/laurine
+# - name: toshi0383/ipanema
+# - name: doubleencore/tap # xcodeissuegenerator
+# - name: mono0926/license-plist
 
 # Find homebrew packages with `brew search`
 homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  # - bluepill
   - carthage
+  # - chisel
+  # - fastlane # Installed via rubygem with ruby >= 2.3
+  # - fbsimctl
   - git-flow
+  # - ipanema
+  # - jiritrecak/laurine/laurine
+  # - license-plist
+  # - mas
   - mint
   - npm
   - node
+  # - openssl
   - rbenv
+  # - sonar-scanner
+  # - sourcery # or cocoapods in projects
+  # - kylef/formulae/swiftenv
+  # - swiftformat # in projects, in xcode extension, in git pre-commit hook ?
+  # - swiftgen # Installed in projects with Cocoapdods ?
+  # - swiftlint
+  # - tailor # or swiftlint
+  # - taylor # ??
+  # - ttygif
+  # - wget
+  # - xcodeissuegenerator
+  # - z # most used folders in terminal
   # - zsh
 
 # List packages to be uninstalled
@@ -24,26 +50,48 @@ homebrew_uninstalled_packages:
 
 # Find homebrew packages with `brew cask search`
 homebrew_cask_apps:
-  # - android-studio
   # - appcode
   - appium
-  # - atom
+  - atom
+  - cakebrew
+  - captain
   - ccmenu
   - charles
+  - docker
+  # - gitscout
+  # - hstracker
+  # - icons8
+  # - iconjar
   # - imageoptim
-  # - intellij-idea
-  # - java
-  # - java8
+  - intellij-idea
+  - java
+  - java8
+  # - kaleidoscope
+  # - kap
+  - ksdiff
+  - kitematic
+  # - nucleo
+  # - noun-project
+  # - overkill
   # - postman
+  # - raindropio
+  # - reveal
+  - setapp
   - simpholders
+  - sim-daltonism
   - slack
+  # - spark-inspector
+  # - touch-bar-simulator
+  - vagrant
+  - virtualbox
+  # - visual-studio-code
   # - xamarin-studio
   - zeplin
 
 #
 homebrew_cask_ql_plugins:
+  # - qlcolorcode
   - provisionql #iOS ipa and provisionning QuickLook plugin
-  - quicklookapk #android apk QuickLook plugin
   - qlstephen
   - betterzip
   - qlmarkdown
