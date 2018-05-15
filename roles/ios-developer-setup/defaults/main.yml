@@ -62,6 +62,7 @@ homebrew_cask_apps:
   # - hstracker
   # - icons8
   # - iconjar
+  - flux
   # - imageoptim
   - intellij-idea
   - java

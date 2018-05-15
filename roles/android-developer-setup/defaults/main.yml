@@ -31,11 +31,13 @@ homebrew_cask_apps:
   - ccmenu
   - charles
   - docker
+  - flux
   - java
   - java8
   - postman
   - sim-daltonism
   - slack
+  - sim-daltonism
   - vagrant
   - virtualbox
   # - xamarin-studio
