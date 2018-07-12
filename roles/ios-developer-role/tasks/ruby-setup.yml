@@ -1,0 +1,33 @@
+---
+- homebrew: name={{ item }} state=latest
+  with_items:
+    - rbenv
+    - ruby-build
+
+- template: src=rbenv.zsh.j2 dest={{ zsh_custom_dir }}/rbenv.zsh
+
+- homebrew: name={{ item }} state=latest
+  with_items:
+    - readline
+    - openssl
+
+- shell: >
+    eval "$(rbenv init -)";
+    rbenv install {{ rbenv_ruby_version }}
+    creates=~/.rbenv/versions/{{ rbenv_ruby_version }}
+- shell: >
+    eval "$(rbenv init -)";
+    rbenv global
+  register: rbenv_global_version
+  changed_when: false
+
+- shell: >
+    eval "$(rbenv init -)";
+    rbenv global {{ rbenv_ruby_version }}
+  when: rbenv_global_version.stdout != rbenv_ruby_version
+
+# NOTE: We must set user_install=no to install gems to ~/.rbenv/versions/{{ rbenv_ruby_version }}/lib/ruby/gems/.
+# If not, gems are installed to /usr/local/lib/ruby/gems/.
+- gem: name={{ item }} state=latest user_install=no executable=~/.rbenv/shims/gem
+  notify: rbenv rehash
+  with_items: "{{ rbenv_global_gems }}"

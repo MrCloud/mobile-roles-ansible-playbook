@@ -1,0 +1,149 @@
+---
+configure_xcode: yes
+configure_custom_swift: no
+configure_macos_defaults: no
+configure_ruby_rbenv: yes
+homebrew_upgrade_all_packages: no
+use_mac_store: no
+
+xcode_src: Xcode_9.4.1.xip
+
+---
+rbenv_ruby_version: 2.4.3
+rbenv_global_gems:
+  - bundler
+  - xcpretty
+  - fastlane
+
+swift_version_custom: 4.1.2
+
+macos_sleep_options:
+  - systemsetup -setsleep Never
+  - systemsetup -setharddisksleep Never
+  - systemsetup -setcomputersleep Never
+
+macos_animation_options:
+  - defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+  - defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+  - defaults write com.apple.dock expose-animation-duration -int 0
+  - defaults write com.apple.dock launchanim -bool false
+
+macos_software_autoupdates:
+  - softwareupdate --schedule off
+
+homebrew_use_brewfile: true
+homebrew_brewfile_dir: '~'
+homebrew_repo: https://github.com/Homebrew/brew
+homebrew_prefix: /usr/local
+homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
+homebrew_brew_bin_path: /usr/local/bin
+
+homebrew_installed_packages:
+  - autoconf
+  - bash-completion
+  #- bluepill
+  - boost
+  - carthage
+  - cmake
+  #- curl
+  - git
+  - git-flow
+  - gource
+  - heroku
+  - mint
+  - node
+  - npm
+  - openssl
+  #- wget
+  - argon/mas/mas
+  - kylef/formulae/swiftenv
+  # - chisel
+  # - fbsimctl
+  # - ipanema
+  # - jiritrecak/laurine/laurine
+  # - license-plist
+  # - sonar-scanner
+  # - sourcery # or cocoapods in projects
+  # - kylef/formulae/swiftenv
+  # - swiftformat # in projects, in xcode extension, in git pre-commit hook ?
+  # - swiftgen # Installed in projects with Cocoapdods ?
+  # - swiftlint
+  # - tailor # or swiftlint
+  # - taylor # ??
+  # - ttygif
+  # - xcodeissuegenerator
+  # - z # most used folders in terminal
+
+ homebrew_uninstalled_packages:
+
+homebrew_taps:
+  - name: homebrew/core
+  - name: caskroom/cask
+  - name: homebrew/binary
+  - name: homebrew/dupes
+  - name: homebrew/versions
+  - name: caskroom/versions
+  - name: facebook/fb
+  - name: yonaskolb/Mint
+    url: https://github.com/yonaskolb/Mint.git
+# - name: jiritrecak/laurine
+# - name: toshi0383/ipanema
+# - name: doubleencore/tap # xcodeissuegenerator
+# - name: mono0926/license-plist
+
+homebrew_cask_appdir: /Applications
+
+homebrew_cask_apps:
+  # - appcode
+  - appium
+  - atom
+  - cakebrew
+  - captain
+  - ccmenu
+  - charles
+  - docker
+  - flux
+  - gitscout
+  - google-chrome
+  # - icons8
+  # - iconjar
+  # - imageoptim
+  - intellij-idea
+  - java
+  - java8
+  # - kaleidoscope
+  # - kap
+  - ksdiff
+  - kitematic
+  - ngrok
+  # - nucleo
+  # - noun-project
+  # - overkill
+  # - postman
+  - raindropio
+  - reveal
+  - setapp
+  - simpholders
+  #- sim-daltonism
+  - slack
+  # - touch-bar-simulator
+  - vagrant
+  - virtualbox
+  - visual-studio-code
+  # - xamarin-studio
+  - zeplin
+  # - qlcolorcode
+  - provisionql #iOS ipa and provisionning QuickLook plugin
+  #- qlstephen
+  #- betterzip
+  - qlmarkdown
+  - qlimagesize
+  - suspicious-package
+
+
+mas_email: ""
+mas_password: ""
+mas_installed_app_ids: [] # Don't use this option
+mas_installed_apps: []
+
+mas_upgrade_all_apps: no

@@ -1,0 +1,29 @@
+---
+- name: Run Ansible Tasksto make sure Ansible installed
+  include: ansible.yml
+
+- name: Install Xcode by Placing DMG/XIP inside files dorectoty
+  include: xcode.yml
+  when: configure_xcode
+
+- name: Install Xcode Command Line Tools
+  include: macos-commandline-tools.yml
+  
+- name: Homebrew Tasks to setup Homebrew packages and Homebrew cask applications
+  include: brew.yml
+
+- name: Mac Store to Download Applications including Xcode
+  include: mac-app-store.yml
+  when: use_mac_store
+
+- name: Run Ruby Tasks to set RVM and Rubygems
+  include: ruby-setup.yml
+  when: configure_ruby_rvm
+
+- name: Setup Custom Swift
+  include: swift-setup.yml
+  when: configure_custom_swift
+
+- name: Run macOS Tasks
+  include: macos-defaults.yml
+  when: configure_macos_defaults

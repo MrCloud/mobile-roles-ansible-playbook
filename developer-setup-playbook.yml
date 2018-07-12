@@ -1,7 +1,0 @@
----
-- hosts: localhost
-  connection: local
-  roles:
-    - ios-developer-setup
-    - android-developer-setup
-    - ios-agent-setup

@@ -33,17 +33,17 @@ pip install ansible
 - Update the roles defaults to select the packages you want to install:
 
   #### iOS
-  - Edit [./roles/ios-developer-setup/defaults/main.yml](./roles/ios-developer-setup/defaults/main.yml) to select the packages you want to install
+  - Edit [./roles/ios-developer-role/defaults/main.yml](./roles/ios-developer-role/defaults/main.yml) to select the packages you want to install
 
   #### Android
-  - Edit [./roles/android-developer-setup/defaults/main.yml](./roles/android-developer-setup/defaults/main.yml) to select the packages you want to install
+  - Edit [./roles/android-developer-role/defaults/main.yml](./roles/android-developer-role/defaults/main.yml) to select the packages you want to install
 
 
-- Then select the roles you want to install by commenting/uncommenting the corresponding lines in: [./developer-setup-playbook.yml](./developer-setup-playbook.yml)
+- Then select the roles you want to install by commenting/uncommenting the corresponding lines in: [./mrcloud-playbook.yml](./mrcloud-playbook.yml)
 ```yaml
 roles:
-  # - ios-developer-setup
-  # - android-developer-setup
+  # - ios-developer-role
+  # - android-developer-role
 ```
 
 - Finally install the selected roles by running:

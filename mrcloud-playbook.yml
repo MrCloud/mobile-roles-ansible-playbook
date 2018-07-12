@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  connection: local
+  roles:
+    - ios-developer-role
+    #- android-developer-role
+    #- ios-agent-role

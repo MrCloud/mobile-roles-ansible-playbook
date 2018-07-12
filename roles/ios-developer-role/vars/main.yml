@@ -1,0 +1,7 @@
+---
+homebrew_repo: https://github.com/Homebrew/brew
+
+homebrew_prefix: /usr/local
+homebrew_brew_bin_path: /usr/local/bin
+
+homebrew_cask_appdir: /Applications
