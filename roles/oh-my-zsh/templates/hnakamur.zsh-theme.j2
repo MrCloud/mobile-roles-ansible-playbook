@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+{% raw %}
+PROMPT_DATE="%D{%Y-%m-%d %H:%M:%S}"
+PROMPT_STATUS="%(?.%?.$fg[red]%?$reset_color)"
+PROMPT_DIR="%~"
+PROMPT_CHAR="%# "
+PROMPT_SEP="$fg[blue]|$reset_color"
+
+PROMPT='$fg[blue][$reset_color$PROMPT_DATE$PROMPT_SEP$PROMPT_STATUS$PROMPT_SEP$PROMPT_DIR$PROMPT_SEP$(current_branch)$fg[blue]]$reset_color
+$PROMPT_CHAR'
+{% endraw %}

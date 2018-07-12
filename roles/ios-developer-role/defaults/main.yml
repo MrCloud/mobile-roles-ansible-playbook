@@ -8,7 +8,6 @@ use_mac_store: no
 
 xcode_src: Xcode_9.4.1.xip
 
----
 rbenv_ruby_version: 2.4.3
 rbenv_global_gems:
   - bundler
@@ -74,7 +73,8 @@ homebrew_installed_packages:
   # - xcodeissuegenerator
   # - z # most used folders in terminal
 
- homebrew_uninstalled_packages:
+
+homebrew_uninstalled_packages:
 
 homebrew_taps:
   - name: homebrew/core
@@ -132,6 +132,8 @@ homebrew_cask_apps:
   - visual-studio-code
   # - xamarin-studio
   - zeplin
+
+homebrew_cask_ql_plugins:
   # - qlcolorcode
   - provisionql #iOS ipa and provisionning QuickLook plugin
   #- qlstephen
@@ -139,7 +141,6 @@ homebrew_cask_apps:
   - qlmarkdown
   - qlimagesize
   - suspicious-package
-
 
 mas_email: ""
 mas_password: ""

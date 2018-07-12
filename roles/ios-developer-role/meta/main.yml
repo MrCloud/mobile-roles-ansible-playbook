@@ -27,6 +27,6 @@ galaxy_info:
     - android
 
 dependencies:
-  - hnakamur.oh-my-zsh
+  - oh-my-zsh
   # List your role dependencies here, one per line. Be sure to remove the '[]' above,
   # if you add dependencies to this list.

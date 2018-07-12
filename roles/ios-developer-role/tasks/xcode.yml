@@ -3,32 +3,8 @@
   stat: path=/Library/Developer/Xcode/
   register: xcode_dir
 
-- name: test whether xcode was uploaded earlier
-  stat: path=~/{{ xcode_src }}
-  register: xcode_dl_path
-
-- name: upload xcode
-  copy: src={{ xcode_src }} dest=~/
-  when: xcode_dl_path.stat.exists == False
-
-- name: check that the xcode archive is valid
-  command: "pkgutil --check-signature ~/{{ xcode_src }} | grep \"Status: signed Apple Software\""
-  when: xcode_dir.stat.exists == False
-
-- name: Install Xcode from XIP file Location
-  command: bash -c 'open -FWga "Archive Utility" --args ~/{{ xcode_src }}'
-  when: xcode_dir.stat.exists == False
-
-- name: Move Xcode To Application
-  command: bash -c 'mv ~/Xcode*.app /Applications/'
-  when: xcode_dir.stat.exists == False
-
-# Not Tested
-# - name: extract the xcode archive in place
-#   extract_xip:
-#     src: "{{ xcode_src }}"
-#     dest: "/Applications"
-#   become: yes
+- name: Selects (and installs if necessary) Xcode 9.4.1
+  xcversion: state=selected version=9.4.1 clean=true
 
 - name: accept license agreement
   command: /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept
@@ -65,11 +41,10 @@
   become_method: sudo
   register: dev_tools_security_status
 
-
 - name: enable developer mode
   command: DevToolsSecurity -enable
   become: yes
   become_method: sudo
   when:
-    - "'disabled' in dev_tools_security_status.stdout"
+    - '"disabled" in dev_tools_security_status'
     - xcode_dir.stat.exists == False

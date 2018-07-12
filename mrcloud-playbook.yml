@@ -1,6 +1,10 @@
 ---
 - hosts: localhost
   connection: local
+
+  vars_files:
+    - secret
+
   roles:
     - ios-developer-role
     #- android-developer-role
