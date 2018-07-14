@@ -1,0 +1,26 @@
+---
+- name: Install Xcode by Placing DMG/XIP inside files dorectoty
+  import_tasks: xcode.yml
+  when: configure_xcode
+
+- name: Install Xcode Command Line Tools
+  import_tasks: macos-commandline-tools.yml
+  
+- name: Homebrew Tasks to setup Homebrew packages and Homebrew cask applications
+  import_tasks: brew.yml
+
+- name: Mac Store to Download Applications including Xcode
+  import_tasks: mac-app-store.yml
+  when: use_mac_store
+
+- name: Run Ruby Tasks to set RVM and Rubygems
+  import_tasks: ruby-setup.yml
+  when: configure_ruby_rbenv
+
+- name: Setup Custom Swift
+  import_tasks: swift-setup.yml
+  when: configure_custom_swift
+
+- name: Run macOS Tasks
+  import_tasks: macos-defaults.yml
+  when: configure_macos_defaults

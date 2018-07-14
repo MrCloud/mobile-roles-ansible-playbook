@@ -1,10 +1,20 @@
 ---
 configure_xcode: yes
+configure_custom_swift: no
 configure_macos_defaults: no
+configure_ruby_rbenv: yes
 homebrew_upgrade_all_packages: no
 use_mac_store: no
 
 xcode_src: Xcode_9.4.1.xip
+
+rbenv_ruby_version: 2.4.3
+rbenv_global_gems:
+  - bundler
+  - xcpretty
+  - fastlane
+
+swift_version_custom: 4.1.2
 
 macos_sleep_options:
   - systemsetup -setsleep Never
@@ -27,52 +37,42 @@ homebrew_prefix: /usr/local
 homebrew_install_path: "{{ homebrew_prefix }}/Homebrew"
 homebrew_brew_bin_path: /usr/local/bin
 
+homebrew_installed_packages:
+  - autoconf
+  - bash-completion
+  - boost
+  - carthage
+  - cmake
+  - git
+  - git-flow
+  - mint
+  - openssl
+  - sonar-scanner
+  # - sourcery # or cocoapods in projects
+  # - swiftformat # in projects, in xcode extension, in git pre-commit hook ?
+  # - swiftlint
+
+
+homebrew_uninstalled_packages:
+
 homebrew_taps:
   - name: homebrew/core
   - name: caskroom/cask
+  - name: homebrew/binary
+  - name: homebrew/dupes
+  - name: homebrew/versions
   - name: caskroom/versions
+  - name: facebook/fb
+  - name: yonaskolb/Mint
+    url: https://github.com/yonaskolb/Mint.git
 
-# Find homebrew packages with `brew search`
-homebrew_installed_packages:
-  - git-flow
-  - gradle
-  - gradle-completion
-  - maven
-  - maven-completion
+homebrew_cask_appdir: /Applications
 
-# List packages to be uninstalled
-homebrew_uninstalled_packages:
-
-# Find homebrew packages with `brew cask search`
 homebrew_cask_apps:
-  - android-studio
-  # - android-studio-preview
-  # - android-sdk
   - appium
-  - captain
-  - ccmenu
-  - charles
-  - docker
-  - flux
-  - java
-  - java8
-  - postman
-  - slack
-  # - sim-daltonism
-  - vagrant
-  - virtualbox
-  # - xamarin-studio
-  - zeplin
 
-# List of useful quicklook plugins
 homebrew_cask_ql_plugins:
-  # - qlcolorcode
-  - quicklookapk
-  # - qlstephen
-  # - betterzip
-  - qlmarkdown
-  - qlimagesize
-  - suspicious-package
+  - provisionql #iOS ipa and provisionning QuickLook plugin
 
 mas_email: ""
 mas_password: ""

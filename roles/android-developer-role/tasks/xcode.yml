@@ -1,0 +1,50 @@
+---
+- name: Check if Xcode is already installed
+  stat: path=/Library/Developer/Xcode/
+  register: xcode_dir
+
+- name: Selects (and installs if necessary) Xcode 9.4.1
+  xcversion: state=selected version=9.4.1 clean=true
+
+- name: accept license agreement
+  command: /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept
+  become: yes
+  become_method: sudo
+  when: xcode_dir.stat.exists == False
+
+- name: install mobile device package
+  command: installer -pkg /Applications/Xcode.app/Contents/Resources/Packages//MobileDevice.pkg -target /
+  become: yes
+  become_method: sudo
+  when: xcode_dir.stat.exists == False
+
+- name: install mobile device development package
+  command: installer -pkg /Applications/Xcode.app/Contents/Resources/Packages/MobileDeviceDevelopment.pkg -target /
+  become: yes
+  become_method: sudo
+  when: xcode_dir.stat.exists == False
+
+- name: install Xcode System Resources package
+  command: installer -pkg /Applications/Xcode.app/Contents/Resources/Packages/XcodeSystemResources.pkg -target /
+  become: yes
+  become_method: sudo
+  when: xcode_dir.stat.exists == False
+
+- name: install additional xcode components
+  command: installer -pkg /Applications/Xcode.app/Contents/Resources/Packages/XcodeSystemResources.pkg -target /
+  become: yes
+  when: xcode_dir.stat.exists == False
+
+- name: check on the status of developer mode
+  command: DevToolsSecurity -status
+  become: yes
+  become_method: sudo
+  register: dev_tools_security_status
+
+- name: enable developer mode
+  command: DevToolsSecurity -enable
+  become: yes
+  become_method: sudo
+  when:
+    - '"disabled" in dev_tools_security_status'
+    - xcode_dir.stat.exists == False

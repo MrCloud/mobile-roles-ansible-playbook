@@ -10,6 +10,7 @@
 
 - name: Install homebrew if not present
   command: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  become: no
   when: not brew_cmd.stat.exists
 
 # Tap.
@@ -28,6 +29,7 @@
     name: "{{ item }}"
     state: latest
     update_homebrew: yes
+  become: no
   with_items: "{{ homebrew_installed_packages }}"
 
 - name: Install homebrew cask package
@@ -35,6 +37,7 @@
     name: "{{ item }}"
     state: present
     update_homebrew: yes
+  become: no
   with_items:
     - "{{ homebrew_cask_apps }}"
     - "{{ homebrew_cask_ql_plugins }}"
