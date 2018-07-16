@@ -42,13 +42,14 @@ pip install ansible
 - Then select the roles you want to install by commenting/uncommenting the corresponding lines in: [./mrcloud-playbook.yml](./mrcloud-playbook.yml)
 ```yaml
 roles:
-  # - ios-developer-role
-  # - android-developer-role
+    - ios-developer-role
+    - android-developer-role
+    - ios-agent-role
 ```
 
 - Finally install the selected roles by running:
 ```shell
-ansible-playbook -i inventory developer-setup-playbook.yml
+ansible-playbook -i inventory mrcloud-playbook.yml
 ```
 
 
