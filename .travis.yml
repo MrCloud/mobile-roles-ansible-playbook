@@ -3,11 +3,6 @@ sudo: required
 language: objective-c
 osx_image: xcode9
 
-before_install:
-  - rm -rf /usr/local/Homebrew
-  - rm -rf /usr/local/Caskroom
-  - rm -rf /usr/local/bin/brew
-
 install:
   # Install pip.
   - sudo easy_install pip
@@ -28,8 +23,13 @@ install:
 script:
   # Basic role syntax check
   - ansible-galaxy install -r requirements.yml
-  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
-  - ansible-playbook -v tests/test.yml -i tests/inventory -K
+  - ansible-playbook roles/android-developer-role/tests/test.yml -i roles/android-developer-role/tests/inventory --syntax-check
+  - ansible-playbook -v roles/android-developer-role/tests/test.yml -i roles/android-developer-role/tests/inventory -K
+  - ansible-playbook roles/ios-developer-role/tests/test.yml -i roles/ios-developer-role/tests/inventory --syntax-check
+  - ansible-playbook -v roles/ios-developer-role/tests/test.yml -i roles/ios-developer-role/tests/inventory -K
+  - ansible-playbook roles/ios-agent-role/tests/test.yml -i roles/ios-agent-role/tests/inventory --syntax-check
+  - ansible-playbook -v roles/ios-agent-role/tests/test.yml -i roles/ios-agent-role/tests/inventory -K
+
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
