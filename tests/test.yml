@@ -1,7 +1,0 @@
----
-- hosts: localhost
-  remote_user: root
-  roles:
-    - ios-developer-role
-    - android-developer-role
-    - ios-agent-role
