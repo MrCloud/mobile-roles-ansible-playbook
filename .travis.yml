@@ -24,12 +24,8 @@ install:
 script:
   # Basic role syntax check
   - ansible-galaxy install -r requirements.yml
-  - ansible-playbook roles/android-developer-role/tests/test.yml -i roles/android-developer-role/tests/inventory --syntax-check
-  - ansible-playbook -v roles/android-developer-role/tests/test.yml -i roles/android-developer-role/tests/inventory -K
-  - ansible-playbook roles/ios-developer-role/tests/test.yml -i roles/ios-developer-role/tests/inventory --syntax-check
-  - ansible-playbook -v roles/ios-developer-role/tests/test.yml -i roles/ios-developer-role/tests/inventory -K
-  - ansible-playbook roles/ios-agent-role/tests/test.yml -i roles/ios-agent-role/tests/inventory --syntax-check
-  - ansible-playbook -v roles/ios-agent-role/tests/test.yml -i roles/ios-agent-role/tests/inventory -K
+  - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+  - ansible-playbook -v tests/test.yml -i tests/inventory -K
 
 
 notifications:
